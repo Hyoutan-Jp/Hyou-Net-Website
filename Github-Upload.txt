@@ -1,0 +1,14 @@
+LOL I'm not very good at github.
+
+THIS IS MEMO
+Commands 
+-upload-
+
+1. 
+git add .
+git commit -m "Comments"
+
+2.
+git push origin main --force
+
+--------
