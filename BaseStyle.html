@@ -25,194 +25,14 @@
     <link rel="stylesheet" href="CSS/Theme.css">
   </head>
 <body>
-  <style>
-    /* Base styles for mobile (width <= 600px) */
-    .top-container {
-        padding-top: 0px;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #ffac3f;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: transform 0.5s ease, opacity 0.5s ease;
-    }
-    .top-title {
-        margin-top: 12px;
-        text-align: left;
-        padding-left: 100px;
-        padding-bottom: 10px;
-        margin-bottom: -3px;
-        color: #000000;
-    }
-    .menu-icon {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        padding: 1px;
-        padding-top: 6px;
-        z-index: 1000;
-    }
-    .menu-icon div {
-        background-color: #000000;
-        height: 4px;
-        width: 100%;
-        margin: 5px 0;
-        transition: 0.3s;
-    }
-    .menu-icon.active div:nth-child(1) {
-        transform: rotate(45deg) translate(4px, -5px);
-        transform-origin: left center;
-    }
-    .menu-icon.active div:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-icon.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(2px, 5px);
-        transform-origin: left center;
-    }
-    .nav {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #ffc273;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-        overflow: hidden;
-        transition: left 0.3s ease-in-out;
-        padding-top: 50px;
-    }
-    .BigNav {
-        font-size: 23px;
-        color: rgb(0, 0, 0);
-        display: block;
-        padding: 10px 30px;
-        text-decoration: none;
-        border-bottom: 1px solid #333;
-        margin-top: 20px;
-        border-top: 1px solid #333;
-    }
-    .nav a:not(.BigNav) {
-        display: block;
-        padding: 10px 30px;
-        text-decoration: none;
-        color: #0044ff;
-        border-bottom: 1px solid #333;
-        transition: background 0.3s;
-    }
-    .nav a:not(.BigNav) {
-        color: #0044ff;
-    }
-    .nav li {
-        list-style: none;
-    }
-    .nav a:hover:not(.BigNav) {
-        background-color: #1f1f1f;
-        color: aqua;
-    }
-    .nav.active {
-        left: 0;
-    }
-    .MenuBottom {
-        position: fixed;
-        bottom: 0;
-        color: #202020;
-        padding-left: 24px;
-        padding-bottom: 10px;
-        font-style: italic;
-        font-size: 20px;
-    }
-    .hiddenHeader {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    .menu-txt {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        padding: 1px;
-        z-index: 1000;
-    }
-    main {
-        background-color: rgb(221, 221, 221);
-        margin-top: 80px;
-    }
 
-  body{
-    background-color: rgb(221, 221, 221);
-  }
-    /* Media queries for screens 600px and wider */
-    @media (min-width: 600px) {
-      main {
-        background-color: rgb(221, 221, 221);
-        margin-top: 60px;
-    }
-        /* Hide hamburger menu and mobile nav */
-        .menu-icon {
-            display: none;
-        }
-        /* Change header to flex layout and reposition nav */
-        .top-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: none;
-        }
-        .top-title {
-            padding-left: 2px;
-            padding-right: -10px;
-            margin: 0;
-        }
-        /* Display nav inline */
-        .nav {
-            position: static;
-            width: auto;
-            height: auto;
-            background-color: transparent;
-            box-shadow: none;
-            padding: 0;
-            display: flex;
-            align-items:center;
-        }
-        .nav li {
-            list-style: none;
-            margin-left: 15px;
-        }
-        /* Hide elements with class "BigNav" and "MenuBottom" */
-        .BigNav, .MenuBottom {
-            display: none;
-        }
-        /* Only show anchor tags that do not have "nomenu" */
-        .nav a.nomenu {
-            display: none;
-        }
-        .nav a {
-            color: #0044ff;
-            text-decoration: none;
-            padding: 0;
-            border: none;
-        }
-        .nav a:hover {
-            color: aqua;
-        }
-    }
-  </style>
   <header id="header" class="top-container">
-    <h1 class="top-title">Hyou-Net</h1>
+    <h1 herf="/" class="top-title">Hyou-Net</h1>
 
     <img class="menu-txt" th:if="${userImage}" th:src="${userImage}"
          src="/images/Login40.png" alt="Load fail"
-         onmouseover="this.title = this.getAttribute('src').endsWith('.svg') ? 'ログインする' : 'プロフィール';"
-         onclick="window.location.href = this.getAttribute('src').endsWith('.svg') ? '/login' : '/profile';"/>
+         onmouseover="this.title = this.getAttribute('src').endsWith('Login40.png') ? 'ログインする' : 'プロフィール';"
+         onclick="window.location.href = this.getAttribute('src').endsWith('Login40.png') ? '/login' : '/profile';"/>
 
     <div class="menu-icon" id="menu-icon" onclick="toggleMenu()">
         <div></div>
@@ -223,10 +43,10 @@
     <nav class="nav" id="nav">
         <li><a class="BigNav nomenu">─ Navigation ─</a></li>
         <li><a class="nomenu" href="/">ホーム</a></li>
-        <li><a href="/login">ログイン</a></li>
-        <li><a href="/profile">プロファイル</a></li>
         <li><a href="/activities">活動</a></li>
+        <li><a class="nomenu" href="/login">ログイン</a></li>
         <li><a href="/thread">掲示板</a></li>
+        <li><a class="nomenu" href="/profile">マイページ</a></li>
         <li><a href="/terms">利用規約</a></li>
         <li class="MenuBottom">Hyou-net official</li>
     </nav>
@@ -272,7 +92,7 @@
   <main>
     <h1>ようこそ</h1>
     <h2>基本的なHTMLページの例</h2>
-    <p>これは基本的なHTMLページの例です。<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>a</p>
+    <p>これは基本的なHTMLページの例です。<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>a</p>
   </main>
 </body>
 </html>
