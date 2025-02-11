@@ -22,6 +22,43 @@
     <meta name="twitter:image" content="https://Hyou-net.org/Images/Hyou.net.png">
     <meta name="twitter:site" content="@your_twitter_handle">
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const menuIcon = document.getElementById('menu-icon');
+          const nav = document.getElementById('nav');
+          const header = document.getElementById('header');
+          let lastScrollY = 0;
+          const threshold = 60;
+          if (!header) {
+              console.error("ERROR! header not found.");
+              return;
+          }
+          window.addEventListener('scroll', () => {
+              const currentScrollY = window.scrollY;
+              if (menuIcon.classList.contains('active') || nav.classList.contains('active')) {
+                  header.classList.remove('hiddenHeader');
+                  return;
+              }
+              if (currentScrollY > threshold) {
+                  header.classList.toggle('hiddenHeader', currentScrollY > lastScrollY);
+              } else {
+                  header.classList.remove('hiddenHeader');
+              }
+              lastScrollY = currentScrollY;
+          });
+      });
+  
+      function toggleMenu() {
+          const menuIcon = document.getElementById('menu-icon');
+          const nav = document.getElementById('nav');
+          const header = document.getElementById('header');
+  
+          menuIcon.classList.toggle('active');
+          nav.classList.toggle('active');
+          header.classList.remove('hiddenHeader');
+      }
+    </script>
+
     <link rel="stylesheet" href="CSS/Theme.css">
   </head>
 <body>
@@ -44,55 +81,27 @@
         <li><a class="BigNav nomenu">─ Navigation ─</a></li>
         <li><a class="nomenu" href="/">ホーム</a></li>
         <li><a href="/activities">活動</a></li>
-        <li><a class="nomenu" href="/login">ログイン</a></li>
+        <li><a href="/server">稼働状況</a></li>
         <li><a href="/thread">掲示板</a></li>
-        <li><a class="nomenu" href="/profile">マイページ</a></li>
         <li><a href="/terms">利用規約</a></li>
+        <li><a class="nomenu" href="/login">ログイン</a></li>
+        <li><a class="nomenu" href="/profile">マイページ</a></li>
+        
         <li class="MenuBottom">Hyou-net official</li>
     </nav>
   </header>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuIcon = document.getElementById('menu-icon');
-        const nav = document.getElementById('nav');
-        const header = document.getElementById('header');
-        let lastScrollY = 0;
-        const threshold = 60;
-        if (!header) {
-            console.error("ERROR! header not found.");
-            return;
-        }
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (menuIcon.classList.contains('active') || nav.classList.contains('active')) {
-                header.classList.remove('hiddenHeader');
-                return;
-            }
-            if (currentScrollY > threshold) {
-                header.classList.toggle('hiddenHeader', currentScrollY > lastScrollY);
-            } else {
-                header.classList.remove('hiddenHeader');
-            }
-            lastScrollY = currentScrollY;
-        });
-    });
-
-    function toggleMenu() {
-        const menuIcon = document.getElementById('menu-icon');
-        const nav = document.getElementById('nav');
-        const header = document.getElementById('header');
-
-        menuIcon.classList.toggle('active');
-        nav.classList.toggle('active');
-        header.classList.remove('hiddenHeader');
-    }
-  </script>
   
   <main>
     <h1>ようこそ</h1>
     <h2>基本的なHTMLページの例</h2>
     <p>これは基本的なHTMLページの例です。<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>a</p>
+    <footer>
+      <p>© 2025 Hyou-Net Community</p>
+      <div>
+      <p class="links" href="terms">利用規約</p>
+      <p class="links" href="join">ディスコードに参加</p>
+      </div>
+    </footer>
   </main>
 </body>
 </html>
