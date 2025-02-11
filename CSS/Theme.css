@@ -1,16 +1,5 @@
     /* Base styles for mobile (width <= 630px) */
-    .top-container {
-        padding-top: 0px;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #ffac3f;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: transform 0.5s ease, opacity 0.5s ease;
-    }
+    @media (max-width: 630px) {
     .top-title {
         margin-top: 12px;
         text-align: left;
@@ -102,10 +91,7 @@
         font-style: italic;
         font-size: 20px;
     }
-    .hiddenHeader {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
+
     .menu-txt {
         position: fixed;
         top: 10px;
@@ -117,9 +103,14 @@
         z-index: 1000;
     }
     .top-title:hover {
-            color: rgb(0, 174, 255);
-            transform: scale(1.05);
+        color: rgb(0, 81, 255);
+            transform: scale(1.02);
         }
+    }    
+    .hiddenHeader {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
     main {
         background-color: rgb(221, 221, 221);
         margin-top: 80px;
@@ -128,6 +119,18 @@
   body{
     background-color: rgb(221, 221, 221);
   }
+  .top-container {
+    padding-top: 0px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffac3f;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
     /* Media queries for screens 630px and wider */
     @media (min-width: 630px) {
       main {
@@ -154,7 +157,7 @@
             transition: background 0.3s, color 0.3s, transform 0.3s;
         }
         .top-title:hover {
-            color: rgb(0, 174, 255);
+            color: rgb(0, 81, 255);
             transform: scale(1.05);
         }
         /* Display nav inline */
@@ -166,13 +169,14 @@
             background-color: transparent;
             box-shadow: none;
             padding: 0;
-            margin-left: 380px;
+            margin-left: 180px;
             display: flex;
            
         }
         .nav li {
             list-style: none;
             margin-left: 15px;
+            border-bottom: 1px solid #333;
         }
         /* Hide elements with class "BigNav" and "MenuBottom" */
         .BigNav, .MenuBottom {
